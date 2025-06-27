@@ -26,7 +26,7 @@ class RequestCore:
         )
 
     async def asyncPostRequest(self) -> httpx.Response:
-        async with httpx.AsyncClient(proxies=self.proxy) as client:
+        async with httpx.AsyncClient() as client:
             r = await client.post(self.url, headers={"User-Agent": userAgent}, json=self.data, timeout=self.timeout)
             return r
 
